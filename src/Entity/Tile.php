@@ -1,8 +1,19 @@
 <?php
 
+/**
+ * Tile Entity File
+ *
+ * PHP Version 7.2
+ *
+ * @category Tile
+ * @package  App\Entity
+ * @author   Gaëtan Rolé-Dubruille <gaetan@wildcodeschool.fr>
+ */
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TileRepository")
@@ -23,13 +34,25 @@ class Tile
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\GreaterThanOrEqual(
+     *     value = 0
+     * )
      */
     private $coordX;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\GreaterThanOrEqual(
+     *     value = 0
+     * )
      */
     private $coordY;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $hasTreasure = false;
+
 
     public function getId(): ?int
     {
@@ -68,6 +91,18 @@ class Tile
     public function setCoordY(int $coordY): self
     {
         $this->coordY = $coordY;
+
+        return $this;
+    }
+
+    public function getHasTreasure(): ?bool
+    {
+        return $this->hasTreasure;
+    }
+
+    public function setHasTreasure(bool $hasTreasure): self
+    {
+        $this->hasTreasure = $hasTreasure;
 
         return $this;
     }

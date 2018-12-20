@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Boat Repository File
+ *
+ * PHP Version 7.2
+ *
+ * @category Boat
+ * @package  App\Repository
+ * @author   Gaëtan Rolé-Dubruille <gaetan@wildcodeschool.fr>
+ */
+
 namespace App\Repository;
 
 use App\Entity\Boat;
@@ -14,37 +24,13 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class BoatRepository extends ServiceEntityRepository
 {
+    /**
+     * BoatRepository constructor.
+     *
+     * @param RegistryInterface $registry
+     */
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Boat::class);
     }
-
-    // /**
-    //  * @return Boat[] Returns an array of Boat objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('b.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Boat
-    {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }
