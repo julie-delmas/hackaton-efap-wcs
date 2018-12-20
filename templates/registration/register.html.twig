@@ -72,6 +72,10 @@
                             {{ form_widget(form.plainPassword.second, {'type':'password', 'attr': {'class': 'form-control', 'placeholder':  plainPasswordPlaceholder } }) }}
                         {% endif %}
                     </div>
+
+
+                    <button type="submit" class="btn btn-primary">{{ 'Let\'s register'|trans|raw }} !</button>
+
                     {{ form_end(form) }}
                 </div>
             </div>
