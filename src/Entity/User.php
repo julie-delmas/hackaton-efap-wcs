@@ -12,6 +12,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -67,26 +69,6 @@ class User implements UserInterface
      */
     private $firstName;
 
-    /**
-     * @ORM\Column(type="string",                                      length=32)
-     * @Assert\NotBlank
-     * @Assert\Regex(pattern="/^[a-zàâçéèêëîïôûùüÿñæœ .-]*$/i", message="Your last name must contain only letters.")
-     * @Assert\Length(min=2,                                           minMessage="A last name with 1 letter ? Really ?")
-     * @Assert\Length(max=32,                                          maxMessage="Last name contains too many letters (32 max).")
-     */
-    private $lastName;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $birthDate;
-
-    /**
-     * @ORM\Column(type="string",                                                                                                          length=32, nullable=true)
-     * @Assert\Regex(pattern="/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/",
-     *     message="Your phone number should be written like : 06 00 00 00 00 ou +33 6.")
-     */
-    private $phoneNumber;
 
     /**
      * @ORM\Column(type="datetime")
@@ -99,12 +81,28 @@ class User implements UserInterface
     private $isActive;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Quizz", mappedBy="user")
+     */
+    private $quizzs;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Avatar", inversedBy="userAvatar")
+     */
+    private $avatar;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Grade", inversedBy="userScore")
+     */
+    private $grade;
+
+    /**
      * User constructor.
      */
     public function __construct()
     {
         $this->isActive = true;
         $this->roles[] = 'ROLE_USER';
+        $this->quizzs = new ArrayCollection();
     }
 
     /**
@@ -112,7 +110,7 @@ class User implements UserInterface
      */
     public function __toString()
     {
-        return  $this->firstName . ' - ' . $this->lastName;
+        return  $this->firstName;
     }
 
     /**
@@ -247,63 +245,6 @@ class User implements UserInterface
     }
 
     /**
-     * @return null|string
-     */
-    public function getLastName(): ?string
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * @param  string $lastName
-     * @return User
-     */
-    public function setLastName(string $lastName): self
-    {
-        $this->lastName = $lastName;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTimeInterface|null
-     */
-    public function getBirthDate(): ?\DateTimeInterface
-    {
-        return $this->birthDate;
-    }
-
-    /**
-     * @param  \DateTimeInterface|null $birthDate
-     * @return User
-     */
-    public function setBirthDate(?\DateTimeInterface $birthDate): self
-    {
-        $this->birthDate = $birthDate;
-
-        return $this;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getPhoneNumber(): ?string
-    {
-        return $this->phoneNumber;
-    }
-
-    /**
-     * @param  null|string $phoneNumber
-     * @return User
-     */
-    public function setPhoneNumber(?string $phoneNumber): self
-    {
-        $this->phoneNumber = $phoneNumber;
-
-        return $this;
-    }
-
-    /**
      * @return \DateTimeInterface|null
      */
     public function getCreationDate(): ?\DateTimeInterface
@@ -337,6 +278,61 @@ class User implements UserInterface
     public function setIsActive(bool $isActive): self
     {
         $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Quizz[]
+     */
+    public function getQuizzs(): Collection
+    {
+        return $this->quizzs;
+    }
+
+    public function addQuizz(Quizz $quizz): self
+    {
+        if (!$this->quizzs->contains($quizz)) {
+            $this->quizzs[] = $quizz;
+            $quizz->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuizz(Quizz $quizz): self
+    {
+        if ($this->quizzs->contains($quizz)) {
+            $this->quizzs->removeElement($quizz);
+            // set the owning side to null (unless already changed)
+            if ($quizz->getUser() === $this) {
+                $quizz->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getAvatar(): ?Avatar
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?Avatar $avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    public function getGrade(): ?Grade
+    {
+        return $this->grade;
+    }
+
+    public function setGrade(?Grade $grade): self
+    {
+        $this->grade = $grade;
 
         return $this;
     }

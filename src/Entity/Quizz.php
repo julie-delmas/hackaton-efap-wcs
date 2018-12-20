@@ -46,6 +46,11 @@ class Quizz
      */
     private $answerValidate;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="quizzs")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +124,18 @@ class Quizz
     public function setAnswerValidate(string $answerValidate): self
     {
         $this->answerValidate = $answerValidate;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
