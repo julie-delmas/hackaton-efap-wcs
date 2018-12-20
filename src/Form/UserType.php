@@ -50,18 +50,6 @@ class UserType extends AbstractType
                     ]
                 ]
             )
-            ->add(
-                'lastName',
-                TextType::class,
-                [
-                    'label' => 'Last name',
-                    'translation_domain' => 'messages',
-                    'attr' => [
-                        'minLength' => '2',
-                        'maxLength' => '32'
-                    ]
-                ]
-            )
             ->add('email', EmailType::class)
             ->add(
                 'plainPassword',
@@ -70,16 +58,6 @@ class UserType extends AbstractType
                     'type' => PasswordType::class,
                     'first_options'  => ['label' => 'Password'],
                     'second_options' => ['label' => 'Repeat Password'],
-                ]
-            )
-            ->add(
-                'termsAccepted',
-                CheckboxType::class,
-                [
-                    'mapped' => false,
-                    'label' => 'Check accepted terms',
-                    'translation_domain' => 'messages',
-                    'constraints' => new IsTrue(),
                 ]
             );
     }
