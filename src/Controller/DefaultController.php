@@ -54,4 +54,15 @@ final class DefaultController extends AbstractController
             ['clock' => $clock]
         );
     }
+
+    /**
+     * Home page
+     *
+     * @Route("/le-savais-tu", name="know", methods={"GET", "HEAD"})
+     * @return     Response A Response instance
+     */
+    public function know(): Response
+    {
+        return $this->render('default/know.html.twig');
+    }
 }

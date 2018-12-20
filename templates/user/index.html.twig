@@ -27,9 +27,7 @@
             <div class="row">
                 <div class="col mb-5">
                     <div class="jumbotron">
-                        <h2>{{ 'Hello %firstname% - %lastname%'|trans({'%firstname%':user.firstName, '%lastname%':user.lastName})|raw }} ! ✅</h2>
-
-                        {{ 'See a single entry for Webpack on this page (open console to see user.js\'s message)'|trans|raw }}
+                        <h2>Hello {{ user.firstName}}!</h2>
                         <ul>
                             <li><a href="{{ path('app_logout') }}">{{ 'Logout'|trans|raw }}</a></li>
                             <li><a href="{{ path('index') }}">{{ 'Back on homepage'|trans|raw }}</a></li>
