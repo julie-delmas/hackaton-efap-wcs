@@ -46,7 +46,7 @@
 }
 
 .sea {
-    background-image: url('../images/sea.png');
+    background-image: url('../images/se.png');
 }
 
 .port {
@@ -55,6 +55,7 @@
 
 .island {
     background-image: url('../images/island.png');
+    animation: 3s ease myBoat 0s infinite alternate;
 }
 
 @keyframes myBoat {
@@ -81,6 +82,8 @@
     background-repeat: no-repeat;
     padding: 1em;
     margin-top: 1em;
+    border-radius: 10px;
+    border: 10px solid darkblue;
 }
 
 .infos {
