@@ -12,8 +12,6 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('user', './assets/js/user.js')
-    .addEntry('map', './assets/js/map.js')
-    .addEntry('style', './assets/js/user.js')
 
     .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()

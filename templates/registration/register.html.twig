@@ -38,18 +38,6 @@
                                 {% endif %}
                             </div>
                         </div>
-                        <div class="col-md">
-                            <div class="form-group form-error">
-                                {% set lastNamePlaceholder = 'Lastname'|trans|raw %}
-                                {% if form.lastName.vars.errors|length %}
-                                    {{ form_widget(form.lastName,
-                                        form.lastName.vars|merge({'attr': {'autofocus': null, 'class': 'form-control', 'placeholder': lastNamePlaceholder} }) ) }}
-                                    {{ form_errors(form.lastName) }}
-                                {% else %}
-                                    {{ form_widget(form.lastName, { 'attr': {'class': 'form-control', 'placeholder': lastNamePlaceholder} }) }}
-                                {% endif %}
-                            </div>
-                        </div>
                     </div>
 
                     <div class="form-group form-error">
@@ -83,11 +71,6 @@
                         {% else %}
                             {{ form_widget(form.plainPassword.second, {'type':'password', 'attr': {'class': 'form-control', 'placeholder':  plainPasswordPlaceholder } }) }}
                         {% endif %}
-                    </div>
-
-                    <div class="mt-5 mb-5">
-                        <label for="user_termsAccepted">{{'Check terms to register'|trans|raw}}</label>
-                        {{ form_widget(form.termsAccepted) }}
                     </div>
 
                     <button type="submit" class="btn btn-primary">{{ 'Let\'s register'|trans|raw }} !</button>
