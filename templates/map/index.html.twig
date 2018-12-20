@@ -6,9 +6,52 @@
 
 {% block body %}
     <div class="container-fluid">
-        <h1>Map</h1>
+        <h1 style="text-align: center; margin-top: 20px;">Relève tous les défis pour sauver ton ours et ses amis</h1>
+        <h1 style="text-align: center; margin-top: 20px;">Sauvons ensemble la planète et évitons que la banquise ne fonde !</h1>
         <div class="row">
-            <div class="col-10">
+            <div class="offset-1"></div>
+            <div class="col-4">
+                <div class="infos text-center">
+                    <p style="background-color: #00A5E3; border-radius: 2px;">La position de ton ours : coordonnées [{{ boat.coordX }}:{{ boat.coordY }}]</p>
+                </div>
+            </div>
+            <div class="offset-2"></div>
+            <div class="col-4">
+                <div class="text-center">
+                    <p style="background-color: #00A5E3; border-radius: 2px;">
+{#                        {% if {{ map[boat.coordX][boat.coordY].type }} = "island" %}</p>
+                            <p>Un phoque sauvage apparaît devant toi ! Relève un défi pour le sauver.</p>
+                            <!-- Large modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+                            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Modal body text goes here.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}#}
+                </div>
+            </div>
+            <div class="offset-1"></div>
+
+        </div>
+        <div class="row">
+            <div class="col-1">
+            </div>
+            <div class="col-9">
                 <div class="map">
                     {% if map is empty %}
                         <div class="alert alert-warning">You are still on the firm ground, you have to loat fixtures first !</div>
@@ -19,7 +62,7 @@
                                 {% if map[x][y] is defined %}
                                     <div class="tile col-1 {{ map[x][y].type }}">
                                         <div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
-                                        <div class="tile-name coords">{{ map[x][y].coordX }},{{ map[x][y].coordY }}</div>
+                                        <div class="tile-name coords">[{{ map[x][y].coordX }}:{{ map[x][y].coordY }}]</div>
                                         {% if boat.coordX == x and boat.coordY == y %}
                                             <img class="boat img-fluid" src="{{ asset('assets/images/boat.png') }}"
                                                  alt="boat"/>
@@ -32,22 +75,14 @@
                 </div>
             </div>
             <div class="col-2">
-                <div class="infos">
-                    <h2>Information</h2>
-                    <p class="text-warning" style="font-weight: bold; font-size: 25px;">
-                        {# Add here informations about current ship position #}
-                        Your pos. : {{ boat.coordX }}, {{ boat.coordY }}
-                        Type : {{ map[boat.coordX][boat.coordY].type }}
-                    </p>
-                </div>
-                <div class="navigation">
-                    <h2>Navigation</h2>
+                <div class="navigation mt-5">
+                    <h2 class="mb-5">Dirige ton ours</h2>
                     {# Add here N/S/E/W buttons #}
-                    <ul style="list-style-type: none;">
-                        <li><a href="{{ path('move_boat_to', {'direction' : 'N'}) }}" class="btn btn-outline-warning">North !</a></li>
-                        <li><a href="{{ path('move_boat_to', {'direction' : 'E'}) }}" class="btn btn-outline-warning">East !</a></li>
-                        <li><a href="{{ path('move_boat_to', {'direction' : 'S'}) }}" class="btn btn-outline-warning">South !</a></li>
-                        <li><a href="{{ path('move_boat_to', {'direction' : 'W'}) }}" class="btn btn-outline-warning">West !</a></li>
+                    <ul style="list-style-type: none; justify-content: center">
+                        <li><a href="{{ path('move_boat_to', {'direction' : 'N'}) }}" class="btn btn btn-primary">Haut</a></li><br>
+                        <li><a href="{{ path('move_boat_to', {'direction' : 'E'}) }}" class="btn btn btn-primary">Droite</a></li><br>
+                        <li><a href="{{ path('move_boat_to', {'direction' : 'W'}) }}" class="btn btn btn-primary">Gauche</a></li><br>
+                        <li><a href="{{ path('move_boat_to', {'direction' : 'S'}) }}" class="btn btn btn-primary">Bas</a></li>
                     </ul>
                 </div>
             </div>

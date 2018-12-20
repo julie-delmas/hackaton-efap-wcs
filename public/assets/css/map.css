@@ -26,8 +26,8 @@
 
 @media screen and (max-width: 1800px) {
     .tile {
-        height: 100px;
-        width: 100px;
+        height: 110px;
+        width: 110px;
     }
 }
 
@@ -45,17 +45,18 @@
     }
 }
 
-.sea {
-    background-image: url('../images/se.png');
-}
+/*.sea {
+    background-image: url('../images/sea.png');
+}*/
 
 .port {
     background-image: url('../images/port.png');
+    animation: 5s ease myBoat 0s infinite alternate;
 }
 
 .island {
     background-image: url('../images/island.png');
-    animation: 3s ease myBoat 0s infinite alternate;
+    animation: 6s ease myBoat 0s infinite alternate;
 }
 
 @keyframes myBoat {
@@ -86,14 +87,14 @@
     border: 10px solid darkblue;
 }
 
-.infos {
+/*.infos {
     background-image: url('../images/map.jpg');
     width: 100%;
     min-height: 300px;
     margin-top: 1em;
     padding: 1em;
     padding-top: 0.2em;
-}
+}*/
 
 h2 {
     font-size: 1.3em;
