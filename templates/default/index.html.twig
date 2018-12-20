@@ -10,47 +10,42 @@
 
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <div id="map" class="jumbotron">
-                    <h2 class="display-3">Viens jouer !</h2>
-                    <p class="lead">Relève les défis !</p>
-                    <hr class="my-4">
-                    <p>Un petit jeu sympa</p>
-                    <p class="lead">
-                        <a class="btn btn-success btn-lg" href="#" role="button">Learn more</a>
-                    </p>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div id="map" class="jumbotron">
+                        <h2 class="display-3">Viens jouer !</h2>
+                        <p class="lead">Relève les défis !</p>
+                        <div class="text-center">
+                            <a class="btn btn-success btn-lg" href="{{ path('map') }}" role="button">Have fun !</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="offset-6 col-6">
-                <div id="quizz" class="jumbotron">
-                    <h2 class="display-3">Quizz</h2>
-                    <p class="lead">Teste tes connaissances</p>
-                    <hr class="my-4">
-                    <p>Un petit jeu sympa</p>
-                    <p class="lead">
-                        <a class="btn btn-success btn-lg" href="#" role="button">Learn more</a>
-                    </p>
+                <div class="col-md-6 col-xs-12">
+                    <div id="quizz" class="jumbotron">
+                        <h2 class="display-3">Quizz</h2>
+                        <p class="lead">Teste tes connaissances</p>
+                        <div class="text-center">
+                            <a class="btn btn-success btn-lg" href="{{ path('quizz_index') }}" role="button">Let's go !</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <div id="know" class="jumbotron">
-                    <h2 class="display-3">Le savais-tu ?</h2>
-                    <p class="lead">Relève les défis !</p>
-                    <hr class="my-4">
-                    <p>Un petit jeu sympa</p>
-                    <p class="lead">
-                        <a class="btn btn-success btn-lg" href="#" role="button">Learn more</a>
-                    </p>
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <div id="know" class="jumbotron">
+                            <h2 class="display-3">Le savais-tu ?</h2>
+                            <p class="lead">Relève les défis !</p>
+                            <div class="text-center">
+                                <a class="btn btn-success btn-lg" href="{{ path('know') }}" role="button">Let's go !</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+    </section>
 {% endblock %}
 
 

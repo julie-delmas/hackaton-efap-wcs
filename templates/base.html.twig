@@ -23,7 +23,7 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <a class="navbar-brand" href="{{ path('index') }}">
             <img src="{{ asset('build/assets/images/cultivons-malin-logo.png') }}" alt="Logo Captain America">
         </a>
@@ -34,12 +34,12 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link text-success" href="">Jeu
+                    <a class="nav-link text-success" href="{{ path('map') }}">Jeu
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link text-success" href="">Quizz
+                    <a class="nav-link text-success" href="{{ path('quizz_index') }}">Quizz
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -93,7 +93,7 @@
 {% block body %}{% endblock %}
 <footer>
     {% block footer %}
-        <div class="container">
+        <div class="container-fluid">
             <div class="card border-success">
                 <div class="text-center">PUB !!!!!!</div>
             </div>
