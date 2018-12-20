@@ -24,6 +24,19 @@ class QuizzController extends AbstractController
     }
 
     /**
+     * Calculate result
+     *
+     * @Route("/result/{percentage}", name="result", methods="GET")
+     * @param int $percentage
+     * @return     Response A Response instance
+     */
+    /*public function result(int $percentage): Response
+    {
+        var
+        dump($percentage);
+        die();
+    }*/
+    /**
      * @Route("/new", name="quizz_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response

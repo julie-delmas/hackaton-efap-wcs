@@ -12,6 +12,7 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('user', './assets/js/user.js')
+    .addEntry('quizz', './assets/js/quizz.js')
 
     .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()
