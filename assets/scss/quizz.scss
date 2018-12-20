@@ -1,9 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
+@import url(https://fonts.googleapis.com/css?family=Neucha|Cabin+Sketch);
+$headings-font-family:   'Cabin Sketch', cursive !default;
 
 * {
+  font-family: $headings-font-family;
   margin: 0px;
   padding: 0px;
-  font: 16px 'Source Sans Pro', sans-serif;
   border: none;
   box-sizing: border-box;
 }
@@ -31,6 +32,7 @@ body {
 }
 
 #quiz h1 {
+  font-family: $headings-font-family;
   color: #FAFAFA;
   font-weight: 600;
   font-size: 36px;

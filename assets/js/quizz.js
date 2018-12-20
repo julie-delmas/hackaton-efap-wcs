@@ -61,7 +61,7 @@ Quiz.prototype.render = function(container) {
     $('#quiz-name').text(this.quiz_name);
 
     // Create a container for questions
-    var question_container = $('<div>').attr('id', 'question').insertAfter('#quiz-name');
+    var question_container = $('<div class="jumbotron">').attr('id', 'question').insertAfter('#quiz-name');
 
     // Helper function for changing the question and updating the buttons
     function change_question() {
