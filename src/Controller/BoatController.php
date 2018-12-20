@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Boat;
 use App\Form\BoatType;
 use App\Repository\BoatRepository;
-use App\Services\MapManager;
+use App\Service\MapManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

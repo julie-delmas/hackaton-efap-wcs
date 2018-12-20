@@ -31,28 +31,6 @@ class Tile
      */
     private $coordY;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $hasTreasure;
-
-    /**
-     * @return mixed
-     */
-    public function getHasTreasure()
-    {
-        return $this->hasTreasure;
-    }
-
-    /**
-     * @param mixed $hasTreasure
-     */
-    public function setHasTreasure($hasTreasure): void
-    {
-        $this->hasTreasure = $hasTreasure;
-    }
-
-
     public function getId(): ?int
     {
         return $this->id;

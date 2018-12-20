@@ -6,7 +6,7 @@
  * Time: 10:54
  */
 
-namespace App\Services;
+namespace App\Service;
 
 
 use App\Entity\Tile;
