@@ -27,9 +27,14 @@
             <div class="row">
                 <div class="col mb-5">
                     <div class="jumbotron">
+                        <h2>Hello {{ user.firstName}}!</h2>
+                        <ul>
+                            <li><a href="{{ path('app_logout') }}">{{ 'Logout'|trans|raw }}</a></li>
+                            <li><a href="{{ path('index') }}">{{ 'Back on homepage'|trans|raw }}</a></li>
+                        </ul>
                         <div class="row">
                             <div class="col-4">
-                                <img class="img-thumbnail" src="{{ asset('assets/images/Ours_blanc.jpg') }}" class="" >
+                                <img class="img-thumbnail" src="{{ asset('assets/images/Ours_blanc.jpg') }}">
                             </div>
                             <div class="col-8">
                                 <h2><b>Ton pseudo : </b> {{ user.firstName }}</h2>
@@ -42,7 +47,6 @@
                                          aria-valuemin="0" aria-valuemax="100">{{ user.firstName }}</div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

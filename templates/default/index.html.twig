@@ -1,67 +1,58 @@
 {% extends 'base.html.twig' %}
 
-{% block description %}{{ 'Simple starter page before connection'|trans|raw }}{% endblock %}
+{% block description %}Accueil{% endblock %}
 
-{% block title %}{{ 'Home'|trans|raw }}{% endblock %}
+{% block title %}Accueil{% endblock %}
 
-{% block stylesheets %}
-{% endblock %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('index') }}
+    {% endblock %}
 
-{% block header %}
-{% endblock %}
 
 {% block body %}
     <section>
         <div class="container">
-            <div class="row mb-5 mt-5">
-                <div class="col">
-                    <img class="img-thumbnail" src="{{ asset('assets/images/symfony-4-logo.png') }}" alt="Symfony logo">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div id="map" class="exemple">
+                        <div id="map-cercle" style="padding: 24%">
+                            <h3 class="text-center">Viens jouer !</h3>
+                            <p class="text-center">Relève les défis !</p>
+                            <div class="text-center">
+                                <a class="btn btn-success btn-lg" href="{{ path('map') }}" role="button">Have fun !</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div id="map" class="exemple">
+                        <b class="cercle" style="padding: 12%">
+                            <h3 class="text-center">Quizz</h3>
+                            <p class="text-center">Teste tes connaissances</p>
+                            <div class="text-center">
+                                <a class="btn btn-success" href="{{ path('quizz_index') }}" role="button">Go !</a>
+                            </div>
+                        </b>
+                    </div>
                 </div>
             </div>
-            <div class="row mb-5 mt-5">
-                <div class="col text-center">
-                    <h1>{{ 'Starter kit with the following features'|trans|raw|upper }}</h1>
+                <div class="row">
+                    <div class="offset-md-3 col-md-6 col-xs-12">
+                        <div id="map" class="exemple">
+                            <b class="cercle" style="padding: 20%">
+                                <h3 class="text-center">Le sais-tu</h3>
+                                <div class="text-center" style="padding-top: 3%">
+                                    <a class="btn btn-success btn-lg" href="{{ path('know') }}" role="button">Go !</a>
+                                </div>
+                            </b>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row ul-subtitle-text">
-                <div class="col">
-                    <u>{{ 'On the project'|trans|raw }}</u> :
-                    <ul>
-                        <li>
-                            <p>
-                                {{ 'Webpack Encore'|trans|raw }} :
-                                <br>
-                                <i class="fab fa-github"></i>
-                                <i class="fab fa-html5"></i>
-                                <i class="fab fa-css3-alt"></i>
-                                <i class="fab fa-js-square"></i>
-                                <i class="fab fa-sass"></i>
-                                <i class="fab fa-php"></i>
-                            </p>
-                        </li>
-                        <li>{{ 'TimeContinuum'|trans|raw }}.</li>
-                    </ul>
-
-                    <u>{{ 'Usefull links'|trans|raw }}</u> :
-                    <ul>
-                        <li><a href="{{ path('show_time_continuum') }}">{{ 'Sample page using TimeContinuum'|trans|raw }}</a></li>
-                    </ul>
-
-                    <u>{{ 'User Auth without FOSUser'|trans|raw }}</u> :
-                    <ul>
-                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <li><a href="{{ path('app_logout') }}">{{ 'Logout'|trans|raw }}</a></li>
-                        {% else %}
-                            <li><a href="{{ path('app_login') }}">{{ 'Login form'|trans|raw }}</a></li>
-                        {% endif %}
-                        <li><a href="{{ path('user_registration') }}">{{ 'Register form'|trans|raw }}</a></li>
-                        <li><a href="{{ path('user_index') }}">{{ 'View user\'s profile'|trans|raw }}</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </section>
 {% endblock %}
 
+
 {% block javascripts %}
+    {{ encore_entry_script_tags('index') }}
 {% endblock %}

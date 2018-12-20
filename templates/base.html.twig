@@ -23,6 +23,55 @@
 </head>
 <body>
 <header>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <a class="navbar-brand" href="{{ path('index') }}">
+            <img src="{{ asset('build/assets/images/cultivons-malin-logo.png') }}" alt="Logo Captain America">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link text-success" href="{{ path('map') }}">Jeu
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link text-success" href="{{ path('quizz_index') }}">Quizz
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link text-success" href="">Le saviez-vous
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-secondary" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Profil</a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
+                            <a class="dropdown-item text-success" href="{{ path('user_index') }}">Mon profil</a>
+                            <a class="dropdown-item text-success" href="{{ path('app_logout') }}">Me déconnecter</a>
+                        </div>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="{{ path('user_registration') }}">
+                            Inscription
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="{{ path('app_login') }}">
+                            Connexion
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
     {% block header %}
     {% endblock %}
 </header>
@@ -44,8 +93,11 @@
 {% block body %}{% endblock %}
 <footer>
     {% block footer %}
-        <div class="container">
-            <span class="text-muted">{{ 'Place sticky footer content here'|trans|raw }}.</span>
+        <div class="container-fluid">
+            <div class="card border-success">
+                <div class="text-center">PUB !!!!!!</div>
+            </div>
+
         </div>
     {% endblock %}
 </footer>
