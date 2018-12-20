@@ -56,11 +56,6 @@
 
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="remember_me" name="_remember_me">
-                            <label for="remember_me" class="form-check-label">{{'Check me out'|trans|raw}} !</label>
-                        </div>
-
                         <button type="submit" class="btn btn-primary">{{'Log in'|trans|raw}} !</button>
                     </form>
                 </div>

@@ -3,15 +3,13 @@
  * Import from user.js file
  */
 
-$user-title: #0b800e;
-$title-typo: 'Open Sans 800';
+@import url(https://fonts.googleapis.com/css?family=Neucha|Cabin+Sketch);
+$headings-font-family: 'Cabin Sketch', cursive !default;
 
 #user-profile {
-  h2 {
+  * {
     font: {
-      family: $title-typo;
-      weight: 800;
+      family: $headings-font-family;
     }
-    color: $user-title;
   }
 }
