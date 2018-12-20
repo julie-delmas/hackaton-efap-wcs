@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quizz index{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('quizz') }}
+{% endblock %}
+
+{% block body %}
+
+    <div id="quiz">
+        <h1 id="quiz-name"></h1>
+        <button id="submit-button">Envoyez</button>
+        <button id="next-question-button">Question suivante</button>
+        <button id="prev-question-button">Précédent</button>
+
+        <div id="quiz-results">
+            <p id="quiz-results-message"></p>
+            <p id="quiz-results-score"></p>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('quizz') }}
+{% endblock %}
