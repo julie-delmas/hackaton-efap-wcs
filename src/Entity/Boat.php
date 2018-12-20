@@ -1,8 +1,19 @@
 <?php
 
+/**
+ * Boat Entity File
+ *
+ * PHP Version 7.2
+ *
+ * @category Boat
+ * @package  App\Entity
+ * @author   Gaëtan Rolé-Dubruille <gaetan@wildcodeschool.fr>
+ */
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BoatRepository")
@@ -23,11 +34,17 @@ class Boat
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\GreaterThanOrEqual(
+     *     value = 0
+     * )
      */
     private $coordX;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\GreaterThanOrEqual(
+     *     value = 0
+     * )
      */
     private $coordY;
 

@@ -1,22 +1,37 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: sylvain
- * Date: 23/11/18
- * Time: 11:29
+ * Main DataFixtures File
+ *
+ * PHP Version 7.2
+ *
+ * @category DataFixtures
+ * @package  App\DataFixtures
+ * @author   Gaëtan Rolé-Dubruille <gaetan@wildcodeschool.fr>
  */
 
 namespace App\DataFixtures;
-
 
 use App\Entity\Boat;
 use App\Entity\Tile;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class AppFixtures extends Fixture
+/**
+ * Class AppFixtures
+ *
+ * @category DataFixtures
+ * @package  App\DataFixtures
+ * @author   Gaëtan Rolé-Dubruille <gaetan@wildcodeschool.fr>
+ */
+final class AppFixtures extends Fixture
 {
-    public function load(ObjectManager $manager)
+    /**
+     * Loading function
+     *
+     * @param ObjectManager $manager Getting Doctrine
+     */
+    public function load(ObjectManager $manager): void
     {
         $tiles = [
             ['sea', 'sea', 'sea', 'sea', 'sea', 'island', 'sea', 'sea', 'sea', 'port', 'sea', 'sea'],
@@ -41,8 +56,8 @@ class AppFixtures extends Fixture
         $boat->setCoordX(0);
         $boat->setCoordY(0);
         $boat->setName('Black Pearl');
-        $manager->persist($boat);
 
+        $manager->persist($boat);
         $manager->flush();
     }
 }

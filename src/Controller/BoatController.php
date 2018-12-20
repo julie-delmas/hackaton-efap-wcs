@@ -1,147 +1,122 @@
 <?php
 
+/**
+ * Boat Controller File
+ *
+ * PHP Version 7.2
+ *
+ * @category Boat
+ * @package  App\Controller
+ * @author   Gaëtan Rolé-Dubruille <gaetan@wildcodeschool.fr>
+ */
+
 namespace App\Controller;
 
 use App\Entity\Boat;
-use App\Form\BoatType;
 use App\Repository\BoatRepository;
 use App\Service\MapManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * Boat Controller Class
+ *
+ * @category Boat
+ * @package  App\Controller
+ * @author   Gaëtan Rolé-Dubruille <gaetan@wildcodeschool.fr>
+ *
  * @Route("/boat")
  */
 class BoatController extends AbstractController
 {
-
     /**
-     * Move the boat to coord x,y
-     * @Route("/move/{x}/{y}", name="moveBoat", requirements={"x"="\d+", "y"="\d+"}))
+     * A move boat action taking two coordinates
+     *
+     * @param int $x Given X coordinate
+     * @param int $y Given Y coordinate
+     * @param BoatRepository $boatRepository Injecting BoatRepository
+     * @param EntityManagerInterface $em Using Doctrine manager
+     *
+     * @Route("/move/{x}/{y}", name="move_boat", requirements={"x"="\d+", "y"="\d+"}, methods={"GET"}))
+     *
+     * @return RedirectResponse Back on map route
      */
-    public function moveBoat(int $x, int $y, BoatRepository $boatRepository, EntityManagerInterface $em) :Response
-    {
-        $boat = $boatRepository->findOneBy([]);
-        $boat->setCoordX($x);
-        $boat->setCoordY($y);
+    public function moveBoatAction(
+        int $x,
+        int $y,
+        BoatRepository $boatRepository,
+        EntityManagerInterface $em
+    ): RedirectResponse {
 
-        $em->flush();
+        if ($boat = $boatRepository->findOneBy(['id' => 1])) {
+            $boat->setCoordX($x);
+            $boat->setCoordY($y);
+            $em->flush();
+        }
 
         return $this->redirectToRoute('map');
     }
 
-
     /**
-     * @Route("/", name="boat_index", methods="GET")
-     */
-    public function index(BoatRepository $boatRepository): Response
-    {
-        return $this->render('boat/index.html.twig', ['boats' => $boatRepository->findAll()]);
-    }
-
-    /**
-     * @Route("/new", name="boat_new", methods="GET|POST")
-     */
-    public function new(Request $request): Response
-    {
-        $boat = new Boat();
-        $form = $this->createForm(BoatType::class, $boat);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($boat);
-            $em->flush();
-
-            return $this->redirectToRoute('boat_index');
-        }
-
-        return $this->render('boat/new.html.twig', [
-            'boat' => $boat,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="boat_show", methods="GET")
-     */
-    public function show(Boat $boat): Response
-    {
-        return $this->render('boat/show.html.twig', ['boat' => $boat]);
-    }
-
-    /**
-     * @Route("/{id}/edit", name="boat_edit", methods="GET|POST")
-     */
-    public function edit(Request $request, Boat $boat): Response
-    {
-        $form = $this->createForm(BoatType::class, $boat);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('boat_index', ['id' => $boat->getId()]);
-        }
-
-        return $this->render('boat/edit.html.twig', [
-            'boat' => $boat,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="boat_delete", methods="DELETE")
-     */
-    public function delete(Request $request, Boat $boat): Response
-    {
-        if ($this->isCsrfTokenValid('delete' . $boat->getId(), $request->request->get('_token'))) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($boat);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('boat_index');
-    }
-
-    /**
-     * Move the boat to direction n,e,s,w
-     * @Route("/move/{direction}", name="moveDirection", requirements={"direction"="[nesw]"}))
-     * @param string $direction
-     * @param BoatRepository $boatRepository
-     * @param EntityManagerInterface $em
-     * @param MapManager $mapManager
-     * @return Response
+     * A move method with a given direction
+     *
+     * @param string $direction N|S|E|W
+     * @param BoatRepository $boatRepository Injecting BoatRepository
+     * @param EntityManagerInterface $em Using Doctrine manager
+     * @param MapManager $mapManager Injecting MapManager service
+     *
+     * @Route("/move/{direction}", name="move_boat_to", requirements={"direction"="N|S|E|W"}, methods={"GET"}))
+     *
+     * @return RedirectResponse A redirection to map route
      */
     public function moveDirection(
-        string $direction, BoatRepository $boatRepository, EntityManagerInterface $em, MapManager $mapManager ): Response
-    {
-        $boat = $boatRepository->findOneBy(['id'=> 1 ]);
-        $x = $boat->getCoordX();
-        $y = $boat->getCoordY();
-        switch ($direction) {
-            case 'n':
-                $boat->setCoordY($y-1);
-                break;
-            case 'e':
-                $boat->setCoordX($x+1);
-                break;
-            case 's':
-                $boat->setCoordY($y+1);
-                break;
-            case 'w':
-                $boat->setCoordX($x-1);
-                break;
+        string $direction,
+        BoatRepository $boatRepository,
+        EntityManagerInterface $em,
+        MapManager $mapManager
+    ): RedirectResponse {
+
+        if ($boat = $boatRepository->findOneBy(['id' => 1])) {
+            $this->updatingOneCoordinateAccordingToDirection($direction, $boat);
+            if ($mapManager->tileExists($boat->getCoordX(), $boat->getCoordY())) {
+                $em->flush();
+                if ($mapManager->checkTreasure($boat)) {
+                    $this->addFlash('success', 'You just found the treasure Jack !!');
+                }
+            } else {
+                $this->addFlash('warning', 'You are going to far, fellow ...');
+            }
         }
-        if ($mapManager->tileExists($boat->getCoordX(),$boat->getCoordY())){
-            $em->flush();
-        }else {
-            $this->addFlash('danger', 'Impossible to move');
-        }
+
         return $this->redirectToRoute('map');
     }
 
+    /**
+     * Increment or decrement coordinates according to the given direction
+     *
+     * @param string $direction Given direction
+     * @param Boat $boat Copied and passed pointer to Black Pearl object (return no needed)
+     */
+    private function updatingOneCoordinateAccordingToDirection(
+        string $direction,
+        Boat $boat
+    ): void {
+
+        switch ($direction) {
+            case 'N':
+                $boat->setCoordY($boat->getCoordY() - 1);
+                break;
+            case 'E':
+                $boat->setCoordX($boat->getCoordX() + 1);
+                break;
+            case 'S':
+                $boat->setCoordY($boat->getCoordY() + 1);
+                break;
+            case 'W':
+                $boat->setCoordX($boat->getCoordX() - 1);
+                break;
+        }
+    }
 }

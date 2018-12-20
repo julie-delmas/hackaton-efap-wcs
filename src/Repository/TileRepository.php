@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Tile Repository File
+ *
+ * PHP Version 7.2
+ *
+ * @category Tile
+ * @package  App\Repository
+ * @author   Gaëtan Rolé-Dubruille <gaetan@wildcodeschool.fr>
+ */
+
 namespace App\Repository;
 
 use App\Entity\Tile;
@@ -14,37 +24,26 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class TileRepository extends ServiceEntityRepository
 {
+    /**
+     * TileRepository constructor.
+     *
+     * @param RegistryInterface $registry
+     */
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Tile::class);
     }
 
-    // /**
-    //  * @return Tile[] Returns an array of Tile objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * Set false to hasTreasure to all tiles
+     */
+    public function removeAllTreasures(): void
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
+        $this->createQueryBuilder('t')
+            ->update()
+            ->set('t.hasTreasure', ':false')
+            ->setParameter('false', false)
             ->getQuery()
-            ->getResult()
-        ;
+            ->execute();
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Tile
-    {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }
