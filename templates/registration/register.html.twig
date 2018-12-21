@@ -3,6 +3,7 @@
 {% block title %}{{ 'Inscription'|trans|raw }}{% endblock %}
 
 {% block stylesheets %}
+    {{ encore_entry_link_tags('register') }}
 {% endblock %}
 
 {% block header %}
@@ -95,4 +96,5 @@
 {% block footer %}
 {% endblock %}
 {% block javascripts %}
+    {{ encore_entry_script_tags('register') }}
 {% endblock %}
