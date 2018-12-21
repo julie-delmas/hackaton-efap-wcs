@@ -38,7 +38,7 @@ class RegistrationController extends AbstractController
      * @param UserPasswordEncoderInterface $passwordEncoder Encoder
      * @param GlobalClock $clock Given project's clock to handle all DateTime objects
      *
-     * @Route("/register", name="user_registration")
+     * @Route("/", name="user_registration")
      *
      * @return RedirectResponse|Response
      */

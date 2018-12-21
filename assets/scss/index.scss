@@ -40,7 +40,7 @@ body {
   height: 270px;
   margin: 130px auto 0;
   margin-left: 10px;
-  background-color: #9FD6DD;
+  background-color: orange;
   border-radius: 50%;
   box-shadow: inset -25px -25px 40px rgba(0,0,0,.5);
   background-image: -webkit-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
@@ -61,7 +61,7 @@ body {
   width: 280px;
   height: 280px;
   margin: 60px auto 0;
-  background-color: #9FD6DD;
+  background-color: palevioletred;
   border-radius: 50%;
   box-shadow: inset -25px -25px 40px rgba(0,0,0,.5);
   background-image: -webkit-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
@@ -79,6 +79,17 @@ p {
   color: #FFFFFF;
 }
 
-.btn-blue {
-  background-color: #005CAE;
+.btn-quizz {
+  background-color: orangered;
+  color: #FFFFFF;
+}
+
+.btn-map {
+background-color: #005CAE;
+  color: #FFFFFF;
+}
+
+.btn-know {
+background-color: mediumvioletred;
+  color: #FFFFFF;
 }
