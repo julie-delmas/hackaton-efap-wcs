@@ -1,5 +1,44 @@
 {% extends 'base.html.twig' %}
+{% block description %}Le sais-tu{% endblock %}
+
+{% block title %}Le sais-tu{% endblock %}
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('know') }}
+    {% endblock %}
 
 {% block body %}
-test
+    <div id="margin" class="container-fluid header">
+        <h1>Le sais-tu</h1>
+    </div>
+    <section id="genesis">
+        <div class="container">
+            <h2>
+                Chaque heure, 10 milliards d'e-mails sont envoyés !
+            </h2>
+        </div>
+    </section>
+    <div class="back1 back-img"></div>
+    <section id="declic">
+        <div class="container">
+            <h2>
+                L'envoi d'un e-mail avec une pièce jointe équivaut à une ampoule allumée pendant 24h !
+            </h2>
+        </div>
+    </section>
+
+    <div class="back3 back-img"></div>
+    <section class="genesis">
+        <div class="container">
+            <h2>
+                Chaque minute, 3 877 140 recherches sont réalisées sur Google !
+            </h2>
+        </div>
+    </section>
+    <div class="back2 back-img"></div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('know') }}
 {% endblock %}

@@ -1,0 +1,72 @@
+.header {
+  background: url('assets/images/planete.jpg') fixed;
+  height: 100vh;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+section {
+  padding: 8% 0;
+}
+
+#genesis {
+  padding-top: 2%;
+}
+
+#margin {
+  margin-top: 40px;
+}
+h1 {
+  color: #0b800e;
+  text-align: center;
+  font-size: 3em;
+  position: absolute;
+  padding: 5%;
+  border: 1px solid lightgrey;
+  margin: 17% 28%;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 17px;
+  @media screen and (max-width: 700px) {
+    margin: 35% 25%;
+  }
+  @media screen and (max-width: 699px) {
+    margin: 25% 4%;
+  }
+}
+
+h2 {
+  color: #5CC713;
+  text-align: center;
+}
+
+.image {
+  box-shadow: 8px 8px 12px #aaa;
+}
+
+.back-img {
+  height: 50vh;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.back1 {
+  background-image: url('assets/images/ipad.jpg');
+}
+.back2 {
+  background-image: url('assets/images/nature.jpg');
+}
+.back3 {
+  background-image: url('assets/images/ampoule.jpg');
+}
+
+#first-title {
+  padding-top: 2%;
+}
+
+a {
+  color: #0b800e;
+}
