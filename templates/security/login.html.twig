@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'Connection'|trans|raw }}{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block stylesheets %}
+    {{ encore_entry_link_tags('login') }}
 {% endblock %}
 
 {% block header %}
@@ -15,7 +16,7 @@
             </div>
             <div class="row mb-5 mt-5">
                 <div class="col text-center">
-                    <h1>{{ 'Tu dois maintenant te connecter'|trans|raw|upper }}</h1>
+                    <h1>Connecte-toi maintenant</h1>
                 </div>
             </div>
             <div class="row text-center">
@@ -60,14 +61,10 @@
                     </form>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col">
-                    <p><a href="{{ path('index') }}">{{ 'Accueil'|trans|raw }}</a></p>
-                </div>
-            </div>
         </div>
     </section>
 {% endblock %}
 
 {% block javascripts %}
+    {{ encore_entry_script_tags('login') }}
 {% endblock %}
