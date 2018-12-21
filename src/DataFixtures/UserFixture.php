@@ -64,12 +64,14 @@ final class UserFixture extends Fixture implements DependentFixtureInterface
                     'password'
                 )
             )
-            ->setFirstName('userFirstName')
             ->setAvatar($this->getReference('avatar'))
             ->setGrade($this->getReference('grade'))
-            ->setCreationDate($this->clock->getNowInDateTime());
+            ->setFirstName('userFirstName')
+            ->setCreationDate($this->clock->getNowInDateTime())
+            ->setScore(0);
 
         $manager->persist($user);
+        $manager->flush();
     }
 
     public function getDependencies()

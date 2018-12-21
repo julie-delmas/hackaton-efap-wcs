@@ -26,15 +26,15 @@ final class AvatarFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $avatar = new Avatar();
-        $avatar->setName('Ourson');
-        $avatar->setFileName('assets/images/Ourson_evolution.png');
+        $avatar->setName('Ours polaire');
+        $avatar->setFileName('assets/images/Ours_polaire_evolution.png');
 
         $manager->persist($avatar);
         $manager->flush();
 
         $avatar = new Avatar();
-        $avatar->setName('Ours polaire');
-        $avatar->setFileName('assets/images/Ours_polaire_evolution.png');
+        $avatar->setName('Ourson');
+        $avatar->setFileName('assets/images/Ourson_evolution.png');
 
         $manager->persist($avatar);
         $manager->flush();
