@@ -18,13 +18,13 @@
             </div>
             <div class="row">
                 <div class="col mb-5">
-                    <div class="jumbotron">
+                    <div class="jumbotron" style="background-color: white">
                         <div class="row">
                             <div class="col-4">
                                 <img class="img-thumbnail" src="{{ asset(user.avatar.fileName) }}">
                             </div>
                             <div class="col-8">
-                                <h2><b>Ton pseudo : </b> {{ user.firstName }}</h2>
+                                <h2><b>Ton pseudo : </b> {{ user.firstName | capitalize }} </h2>
                                 <h3><b>Ton grade : </b> {{ user.grade.name }}</h3>
 
                                 <h3><b>Ton score : </b> {{ user.score }}</h3>
