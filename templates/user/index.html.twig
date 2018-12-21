@@ -8,12 +8,9 @@
     {{ encore_entry_link_tags('user') }}
 {% endblock %}
 
-
 {% block body %}
     <section id="user-profile">
         <div class="container">
-            <div class="row mb-5 mt-5">
-            </div>
             <div class="row mb-5 mt-5">
                 <div class="col text-center">
                     <h1>Bienvenue</h1>
@@ -24,17 +21,17 @@
                     <div class="jumbotron">
                         <div class="row">
                             <div class="col-4">
-                                <img class="img-thumbnail" src="{{ asset('assets/images/Ours_blanc.jpg') }}">
+                                <img class="img-thumbnail" src="{{ asset(user.avatar.fileName) }}">
                             </div>
                             <div class="col-8">
                                 <h2><b>Ton pseudo : </b> {{ user.firstName }}</h2>
-                                <h3><b>Ton grade : </b> {{ user.firstName }}</h3>
+                                <h3><b>Ton grade : </b> {{ user.grade.name }}</h3>
 
-                                <h3><b>Ton score : </b></h3>
+                                <h3><b>Ton score : </b> {{ user.score }}</h3>
                                 <div class="progress" style="height: 20px;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%;"
-                                    aria-valuenow="25"
-                                         aria-valuemin="0" aria-valuemax="100">{{ user.firstName }}</div>
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: {{ user.score }}%;"
+                                         aria-valuenow="25"
+                                         aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
