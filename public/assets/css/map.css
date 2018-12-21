@@ -30,8 +30,8 @@ body {
 
 @media screen and (max-width: 1800px) {
     .tile {
-        height: 100px;
-        width: 100px;
+        height: 110px;
+        width: 110px;
     }
 }
 
