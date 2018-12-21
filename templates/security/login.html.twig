@@ -12,13 +12,10 @@
     <section>
         <div class="container">
             <div class="row mb-5 mt-5">
-                <div class="col">
-                    <img class="img-thumbnail" src="{{ asset('build/assets/images/symfony-4-logo.png') }}" alt="Symfony logo">
-                </div>
             </div>
             <div class="row mb-5 mt-5">
                 <div class="col text-center">
-                    <h1><i class="fas fa-user-lock"></i> {{ 'Login form'|trans|raw|upper }}</h1>
+                    <h1>{{ 'Tu dois maintenant te connecter'|trans|raw|upper }}</h1>
                 </div>
             </div>
             <div class="row text-center">
@@ -33,39 +30,39 @@
                                 <i class="fas fa-info"></i> {{ message }}
                             </div>
                         {% endfor %}
-
-                        <div class="form-group">
-                            <label for="inputEmail" class="sr-only">{{'Email'|trans|raw}}</label>
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fas fa-envelope"></i></div>
+                        <div class="row justify-content-center">
+                            <div class="md-5">
+                                <div class="form-group">
+                                    <label for="inputEmail" class="sr-only">{{'Email'|trans|raw}}</label>
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fas fa-envelope"></i></div>
+                                        </div>
+                                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="{{ 'Enter an email from User\'s fixture'|trans|raw}}" required autofocus>
+                                    </div>
+                                    <small id="emailHelp" class="form-text text-muted">{{'We\'ll never share your email with anyone else'|trans|raw}}.</small>
                                 </div>
-                                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="{{ 'Enter an email from User\'s fixture'|trans|raw}}" required autofocus>
-                            </div>
-                            <small id="emailHelp" class="form-text text-muted">{{'We\'ll never share your email with anyone else'|trans|raw}}.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword" class="sr-only">{{'Password'|trans|raw}}</label>
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fas fa-lock"></i></div>
+                                <div class="form-group">
+                                    <label for="inputPassword" class="sr-only">{{'Password'|trans|raw}}</label>
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fas fa-lock"></i></div>
+                                        </div>
+                                        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="{{ 'Enter a password from User\'s fixture'|trans|raw}}" required>
+                                    </div>
                                 </div>
-                                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="{{ 'Enter a password from User\'s fixture'|trans|raw}}" required>
                             </div>
                         </div>
 
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-                        <button type="submit" class="btn btn-primary">{{'Log in'|trans|raw}} !</button>
+                        <button type="submit" class="btn btn-primary">{{'Connexion'|trans|raw}} !</button>
                     </form>
                 </div>
             </div>
-            <div class="row mb-5 mt-5 text-center">
-                <div class="col-md">
-                    <p><a href="{{ path('index') }}">{{ 'Back on homepage'|trans|raw }}</a></p>
-                </div>
-                <div class="col-md">
-                    <p><a href="{{ path('user_registration') }}">{{ 'Register form'|trans|raw }}</a></p>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <p><a href="{{ path('index') }}">{{ 'Accueil'|trans|raw }}</a></p>
                 </div>
             </div>
         </div>

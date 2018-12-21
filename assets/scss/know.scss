@@ -23,7 +23,7 @@ h1 {
   text-align: center;
   font-size: 3em;
   position: absolute;
-  padding: 5%;
+  padding: 4%;
   border: 1px solid lightgrey;
   margin: 17% 28%;
   border-radius: 30px;
@@ -67,6 +67,9 @@ h2 {
   padding-top: 2%;
 }
 
+body {
+  background-color: transparent;
+}
 a {
   color: #0b800e;
 }
