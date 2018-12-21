@@ -26,7 +26,7 @@
                                         <div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
                                         <div class="tile-name coords">[{{ map[x][y].coordX }}:{{ map[x][y].coordY }}]</div>
                                         {% if boat.coordX == x and boat.coordY == y %}
-                                            <img class="boat img-fluid" src="{{ asset('assets/images/boat.png') }}"
+                                            <img class="boat " width="85px" height="85px" src="{{ asset('assets/images/boat.png') }}"
                                                  alt="boat"/>
                                         {% endif %}
                                     </div>
@@ -74,8 +74,9 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body">
-                                            <p>{{map[boat.coordX][boat.coordY].challengeDay }}</p>
+                                        <div class="modal-body" style="background-color: #ADD8E6;">
+                                            <p>{{map[boat.coordX][boat.coordY].challengeDay }}</p><br>
+                                            <img src="/../assets/images/boat.png">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" data-dismiss="modal">J'ai rempli la mission</button>
@@ -102,8 +103,9 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body">
+                                        <div class="modal-body" style="background-color: #E6E6FA;">
                                             <p>{{map[boat.coordX][boat.coordY].challengeDay }}</p>
+                                            <img src="/../assets/images/boat.png">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" data-dismiss="modal">J'ai rempli la mission</button>

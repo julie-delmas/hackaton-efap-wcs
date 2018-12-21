@@ -11,6 +11,10 @@ body {
     padding-top: 70px;
 }
 
+footer {
+    background-color: #58B1E9;
+}
+
 nav {
     font-family: Caribbean;
 }
