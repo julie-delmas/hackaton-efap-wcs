@@ -30,12 +30,10 @@ class QuizzController extends AbstractController
      * @param int $percentage
      * @return     Response A Response instance
      */
-    /*public function result(int $percentage): Response
+    public function result(int $percentage): Response
     {
-        var
-        dump($percentage);
-        die();
-    }*/
+       return $this->render()
+    }
     /**
      * @Route("/new", name="quizz_new", methods={"GET","POST"})
      */
