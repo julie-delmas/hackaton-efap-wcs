@@ -66,9 +66,9 @@ final class UserFixture extends Fixture implements DependentFixtureInterface
             )
             ->setAvatar($this->getReference('avatar'))
             ->setGrade($this->getReference('grade'))
-            ->setFirstName('userFirstName')
+            ->setFirstName('Tomy')
             ->setCreationDate($this->clock->getNowInDateTime())
-            ->setScore(0);
+            ->setScore(50);
 
         $manager->persist($user);
         $manager->flush();
