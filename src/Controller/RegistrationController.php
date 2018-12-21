@@ -42,9 +42,8 @@ class RegistrationController extends AbstractController
      * @param GlobalClock $clock Given project's clock to handle all DateTime objects
      * @param AvatarRepository $avatarRepository
      * @param GradeRepository $gradeRepository
-     * @Route("/", name="user_registration")
      * @return RedirectResponse|Response
-     * @Route("/register", name="user_registration")
+     * @Route("/", name="user_registration")
      */
     public function register(
         Request $request,
