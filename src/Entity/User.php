@@ -69,7 +69,6 @@ class User implements UserInterface
      */
     private $firstName;
 
-
     /**
      * @ORM\Column(type="datetime")
      */
@@ -94,6 +93,11 @@ class User implements UserInterface
      * @ORM\ManyToOne(targetEntity="App\Entity\Grade", inversedBy="userScore")
      */
     private $grade;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $score;
 
     /**
      * User constructor.
@@ -333,6 +337,18 @@ class User implements UserInterface
     public function setGrade(?Grade $grade): self
     {
         $this->grade = $grade;
+
+        return $this;
+    }
+
+    public function getScore(): ?int
+    {
+        return $this->score;
+    }
+
+    public function setScore(?int $score): self
+    {
+        $this->score = $score;
 
         return $this;
     }
