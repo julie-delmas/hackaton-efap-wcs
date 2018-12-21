@@ -18,15 +18,16 @@
     {% endblock %}
 
     <link rel="icon" href="{{ asset('build/assets/images/favicon.ico') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('build/assets/images/favicon.ico') }}">
-    <link rel="apple-touch-icon" type="image/x-icon" href="{{ asset('build/assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('build/assets/images/logo2.png') }}">
+    <link rel="apple-touch-icon" type="image/x-icon" href="{{ asset('build/assets/images/logo2.png') }}">
 </head>
 <body>
 <header>
     {% block header %}
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <a class="navbar-brand" href="{{ path('index') }}">
-            <img src="{{ asset('build/assets/images/cultivons-malin-logo.png') }}" alt="Logo Captain America">
+            <img id="logo" src="{{ asset('build/assets/images/logo2.png') }}" alt="Logo">
+            Eco'Kids
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
