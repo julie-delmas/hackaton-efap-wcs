@@ -24,7 +24,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-5">
                         <div class="form-group form-error">
-                            {% set firstNamePlaceholder = 'Ton prénom'|trans|raw %}
+                            {% set firstNamePlaceholder = 'Ton pseudo'|trans|raw %}
                             {% if form.firstName.vars.errors|length %}
                                 {{ form_widget(form.firstName,
                                     form.firstName.vars|merge({'attr': {'autofocus': null, 'class': 'form-control', 'placeholder': firstNamePlaceholder} }) ) }}
@@ -52,7 +52,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-5">
                         <div class="form-group form-error">
-                            {% set passwordPlaceholder = 'Password (min 8 and one number)'|trans|raw %}
+                            {% set passwordPlaceholder = 'Ton mot de passe doit comporter 8 caractères au minimum et un chiffre'|trans|raw %}
                             {% if form.plainPassword.first.vars.errors|length %}
                                 {{ form_widget(form.plainPassword.first,
                                     form.plainPassword.first.vars|merge({'type':'password', 'attr': {'autofocus': null, 'class': 'form-control', 'placeholder': passwordPlaceholder} }) ) }}
@@ -66,7 +66,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-5">
                         <div class="form-group form-error">
-                            {% set plainPasswordPlaceholder = 'Confirm your entered password'|trans|raw %}
+                            {% set plainPasswordPlaceholder = 'Confirme ton mot de passe !'|trans|raw %}
                             {% if form.plainPassword.second.vars.errors|length %}
                                 {{ form_widget(form.plainPassword.second,
                                     form.plainPassword.second.vars|merge({'type':'password', 'attr': {'autofocus': null, 'class': 'form-control', 'placeholder': plainPasswordPlaceholder } }) ) }}
