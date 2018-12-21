@@ -2,16 +2,16 @@ import '../scss/quizz.scss';
 
 // Array of all the questions and choices to populate the questions. This might be saved in some JSON file or a database and we would have to read the data in.
 let all_questions = [{
-    question_string: "Que représente la dépense énergétique de l'utilisation des réseaux sociaux en france ?",
-    choices: {
-        correct: "40%",
-        wrong: ["20%", "60%", "80%"]
-    }
-}, {
-    question_string: "Combien d'application sont \"actives\" dans notre smartphone dans qu'on ne les utilise réellement ?",
+    question_string: "Combien d'applications sont \"actives\" dans notre smartphone sans qu'on ne les utilise pas réellement ?",
     choices: {
         correct: "35",
-        wrong: ["17", "28", "5"]
+        wrong: ["28", "17", "5"]
+    }
+}, {
+    question_string: "Si Internet était un pays, que représenterait sa consommation d'énergie au niveau mondial ?",
+    choices: {
+        correct: "3e place",
+        wrong: ["1re place", "6e place", "10e place"]
     }
 }, {
     question_string: "Combien de Français ont accès à Internet en France ?",
@@ -20,13 +20,13 @@ let all_questions = [{
         wrong: ["56%", "67%", "100%"]
     }
 }, {
-    question_string: "Combien de temps passent les Français par jour sur Internet ?",
+    question_string: "Combien de temps passent les Français sur Internet chaque jour ?",
     choices: {
         correct: "4h48",
         wrong: ["1h37", "6h32", "8h45"]
     }
 }, {
-    question_string: "Combien de temps passent les Français par jour sur les réseaux sociaux ?",
+    question_string: "Combien de temps passent les Français sur les réseaux sociaux chaque jour ?",
     choices: {
         correct: "1h22",
         wrong: ["2h43", "8h55", "12h54"]
@@ -40,11 +40,11 @@ let all_questions = [{
 }, {
     question_string: "Quel est le site le plus visité dans le monde ?",
     choices: {
-        correct: "Google",
-        wrong: ["You tube", "Facebook", "Baidu"]
+        correct: "YouTube",
+        wrong: ["Amazon", "Facebook", "Deezer"]
     }
 }, {
-    question_string: "Combien de mails sont envoyés chaque heure ?",
+    question_string: "Combien d'e-mails sont envoyés chaque heure dans le monde ?",
     choices: {
         correct: "10 milliards",
         wrong: ["10 000", "10 millions", "100 millions"]
