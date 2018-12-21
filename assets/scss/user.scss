@@ -6,6 +6,15 @@
 @import url(https://fonts.googleapis.com/css?family=Neucha|Cabin+Sketch);
 $headings-font-family: 'Cabin Sketch', cursive !default;
 
+body {
+  background: url('assets/images/nature.jpg') fixed;
+  height: 100vh;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #user-profile {
   * {
     font: {

@@ -42,10 +42,11 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="json", unique=true)
+     * @var array
+     *
+     * @ORM\Column(type="json")
      */
     private $roles = [];
-
     /**
      * @Assert\NotBlank
      * @Assert\Length(max=4096)
