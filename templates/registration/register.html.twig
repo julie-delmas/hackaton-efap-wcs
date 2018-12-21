@@ -52,7 +52,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-5">
                         <div class="form-group form-error">
-                            {% set passwordPlaceholder = 'Ton mot de passe doit comporter 8 caractères au minimum et un chiffre'|trans|raw %}
+                            {% set passwordPlaceholder = 'Le mot de passe (8 caractères au minimum et 1 chiffre)'|trans|raw %}
                             {% if form.plainPassword.first.vars.errors|length %}
                                 {{ form_widget(form.plainPassword.first,
                                     form.plainPassword.first.vars|merge({'type':'password', 'attr': {'autofocus': null, 'class': 'form-control', 'placeholder': passwordPlaceholder} }) ) }}

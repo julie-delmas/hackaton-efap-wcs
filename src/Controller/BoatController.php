@@ -83,10 +83,10 @@ class BoatController extends AbstractController
             if ($mapManager->tileExists($boat->getCoordX(), $boat->getCoordY())) {
                 $em->flush();
                 if ($mapManager->checkTreasure($boat)) {
-                    $this->addFlash('success', 'You just found the treasure Jack !!');
+                    $this->addFlash('success', 'Poursuis ta quête en résolvant les défis !');
                 }
             } else {
-                $this->addFlash('warning', 'You are going to far, fellow ...');
+                $this->addFlash('warning', 'Hum... Dans notre monde, la Terre est plate ! Tu ne peux pas sortir en dehors de la carte...');
             }
         }
 

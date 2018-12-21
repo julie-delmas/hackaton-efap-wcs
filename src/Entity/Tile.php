@@ -53,6 +53,11 @@ class Tile
      */
     private $hasTreasure = false;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $challengeDay;
+
 
     public function getId(): ?int
     {
@@ -106,4 +111,17 @@ class Tile
 
         return $this;
     }
+
+    public function getChallengeDay(): ?string
+    {
+        return $this->challengeDay;
+    }
+
+    public function setChallengeDay(?string $challengeDay): self
+    {
+        $this->challengeDay = $challengeDay;
+
+        return $this;
+    }
+
 }
