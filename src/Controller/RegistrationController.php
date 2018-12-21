@@ -67,7 +67,7 @@ class RegistrationController extends AbstractController
             // Add a notification on security/login.html.twig
             $this->addFlash(
                 'registration-success',
-                'Your account is well registered dude !'
+                'Ton compte est bien enregistré ! Bravo !'
             );
 
             return $this->redirectToRoute('app_login');

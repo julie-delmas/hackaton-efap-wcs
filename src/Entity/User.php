@@ -42,7 +42,7 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="json", unique=true)
      */
     private $roles = [];
 
@@ -61,11 +61,11 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string",                                      length=32)
+     * @ORM\Column(type="string", length=32, unique=true)
      * @Assert\NotBlank
      * @Assert\Regex(pattern="/^[a-zàâçéèêëîïôûùüÿñæœ .-]*$/i", message="Your first name must contain only letters.")
-     * @Assert\Length(min=2,                                           minMessage="A first name with 1 letter ? Really ?")
-     * @Assert\Length(max=32,                                          maxMessage="First name contains too many letters (32 max).")
+     * @Assert\Length(min=2,                                           minMessage="Un pseudo avec une seule lettre, vraiment ?")
+     * @Assert\Length(max=32,                                          maxMessage="Ton pseudo comporte trop de caractères (32 max).")
      */
     private $firstName;
 

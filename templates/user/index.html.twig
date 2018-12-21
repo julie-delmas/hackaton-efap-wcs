@@ -8,13 +8,10 @@
     {{ encore_entry_link_tags('user') }}
 {% endblock %}
 
-{% block header %}
-{% endblock %}
-
 {% block body %}
     <section id="user-profile">
         <div class="container">
-                     <div class="row mb-5 mt-5">
+            <div class="row mb-5 mt-5">
                 <div class="col text-center">
                     <h1>Bienvenue</h1>
                 </div>
@@ -33,11 +30,10 @@
                                 <h3><b>Ton score : </b> {{ user.score }}</h3>
                                 <div class="progress" style="height: 20px;">
                                     <div class="progress-bar bg-success" role="progressbar" style="width: {{ user.score }}%;"
-                                    aria-valuenow="25"
+                                         aria-valuenow="25"
                                          aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
