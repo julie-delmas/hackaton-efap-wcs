@@ -38,7 +38,8 @@
                 <div class="row justify-content-center">
                     <div class="col-md-5">
                         <div class="form-group form-error">
-                            {% set emailPlaceholder = 'Ton adresse mail ou celle de tes parents'|trans|raw %}
+                            {% set emailPlaceholder = 'Ton adresse mail ou celle de tes parents pour
+                            gagner une peluche'|trans|raw %}
                             {% if form.email.vars.errors|length %}
                                 {{ form_widget(form.email,
                                     form.email.vars|merge({'type':'email', 'attr': {'autofocus': null, 'class': 'form-control', 'placeholder': emailPlaceholder} }) ) }}
