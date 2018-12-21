@@ -1,9 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
+@import url(https://fonts.googleapis.com/css?family=Neucha|Cabin+Sketch);
+$headings-font-family:   'Cabin Sketch', cursive !default;
 
 * {
+  font-family: $headings-font-family;
   margin: 0px;
   padding: 0px;
-  font: 16px 'Source Sans Pro', sans-serif;
   border: none;
   box-sizing: border-box;
 }
@@ -31,6 +32,7 @@ body {
 }
 
 #quiz h1 {
+  font-family: $headings-font-family;
   color: #FAFAFA;
   font-weight: 600;
   font-size: 36px;
@@ -43,7 +45,7 @@ body {
   float: right;
   margin: 8px 0px 0px 8px;
   padding: 4px 8px;
-  background: #9ACFCC;
+  background: white;
   color: #00403C;
   font-size: 14px;
   cursor: pointer;
@@ -51,14 +53,14 @@ body {
 }
 
 #quiz button:hover {
-  background: #36a39c;
+  background: dodgerblue;
   color: #FFF;
 }
 
 #quiz button:disabled {
   opacity: 0.5;
-  background: #9ACFCC;
-  color: #00403C;
+  background: white;
+  color: black;
   cursor: default;
 }
 
@@ -81,15 +83,15 @@ body {
   display: inline-block;
   margin: 4px;
   padding: 8px;
-  background: #FAE3BB;
-  color: #4C3000;
+  background: #009984;
+  color: white;
   width: calc(50% - 8px);
   min-width: 100px;
   cursor: pointer;
 }
 
 #question label:hover {
-  background: #EBBB67;
+  background: dodgerblue;
 }
 
 #question input[type=radio]:checked + label {

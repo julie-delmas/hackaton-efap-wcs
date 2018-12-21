@@ -23,7 +23,8 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    {% block header %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <a class="navbar-brand" href="{{ path('index') }}">
             <img src="{{ asset('build/assets/images/cultivons-malin-logo.png') }}" alt="Logo Captain America">
         </a>
@@ -72,7 +73,7 @@
             </ul>
         </div>
     </nav>
-    {% block header %}
+
     {% endblock %}
 </header>
 
