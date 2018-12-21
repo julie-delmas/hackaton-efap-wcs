@@ -14,6 +14,9 @@ namespace App\Controller;
 
 use App\Form\UserType;
 use App\Entity\User;
+
+use App\Repository\AvatarRepository;
+use App\Repository\GradeRepository;
 use App\Service\GlobalClock;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,15 +37,21 @@ class RegistrationController extends AbstractController
     /**
      * Register an user
      *
-     * @param Request                      $request         POST'ed data
+     * @param Request $request POST'ed data
      * @param UserPasswordEncoderInterface $passwordEncoder Encoder
      * @param GlobalClock $clock Given project's clock to handle all DateTime objects
-     *
-     * @Route("/", name="user_registration")
-     *
+     * @param AvatarRepository $avatarRepository
+     * @param GradeRepository $gradeRepository
      * @return RedirectResponse|Response
+     * @Route("/", name="user_registration")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GlobalClock $clock)
+    public function register(
+        Request $request,
+        UserPasswordEncoderInterface $passwordEncoder,
+        GlobalClock $clock,
+        AvatarRepository $avatarRepository,
+        GradeRepository $gradeRepository
+    )
     {
         // Build the form
         $user = new User();
@@ -58,6 +67,11 @@ class RegistrationController extends AbstractController
 
             // Using TimeContinuum to have power on time
             $user->setCreationDate($clock->getNowInDateTime());
+            $avatar = $avatarRepository->findOneBy(['id'=>2]);
+            $grade = $gradeRepository->findOneBy(['id'=>1]);
+
+            $user->setAvatar($avatar);
+            $user->setGrade($grade);
 
             // Save the User object
             $entityManager = $this->getDoctrine()->getManager();
