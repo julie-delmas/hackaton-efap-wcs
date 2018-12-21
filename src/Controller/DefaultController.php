@@ -30,7 +30,7 @@ final class DefaultController extends AbstractController
     /**
      * Home page
      *
-     * @Route("/", name="index", methods={"GET", "HEAD"})
+     * @Route("/menu", name="index", methods={"GET", "HEAD"})
      * @return     Response A Response instance
      */
     public function index(): Response
@@ -58,7 +58,7 @@ final class DefaultController extends AbstractController
     /**
      * Home page
      *
-     * @Route("/le-sais-tu", name="know", methods={"GET", "HEAD"})
+     * @Route("/le-savais-tu", name="know", methods={"GET", "HEAD"})
      * @return     Response A Response instance
      */
     public function know(): Response

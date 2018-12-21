@@ -12,10 +12,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Grade;
 use App\Form\UserType;
 use App\Entity\User;
-use App\Entity\Avatar;
 
 use App\Repository\AvatarRepository;
 use App\Repository\GradeRepository;
@@ -44,6 +42,7 @@ class RegistrationController extends AbstractController
      * @param GlobalClock $clock Given project's clock to handle all DateTime objects
      * @param AvatarRepository $avatarRepository
      * @param GradeRepository $gradeRepository
+     * @Route("/", name="user_registration")
      * @return RedirectResponse|Response
      * @Route("/register", name="user_registration")
      */

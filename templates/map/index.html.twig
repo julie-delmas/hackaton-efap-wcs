@@ -6,51 +6,12 @@
 
 
 {% block body %}
-    <div class="container-fluid">
-        <h1 style="text-align: center; margin-top: 20px;">Relève tous les défis pour sauver ton ours et ses amis</h1>
-        <h1 style="text-align: center; margin-top: 20px;">Sauvons ensemble la planète et évitons que la banquise ne fonde !</h1>
-        <div class="row">
-            <div class="offset-1"></div>
-            <div class="col-4">
-                <div class="infos text-center">
-                    <p style="background-color: #00A5E3; border-radius: 2px;">La position de ton ours : coordonnées [{{ boat.coordX }}:{{ boat.coordY }}]</p>
-                </div>
-            </div>
-            <div class="offset-2"></div>
-            <div class="col-4">
-                <div class="text-center">
-                    <p style="background-color: #00A5E3; border-radius: 2px;">
-{#                        {% if {{ map[boat.coordX][boat.coordY].type }} = "island" %}</p>
-                            <p>Un phoque sauvage apparaît devant toi ! Relève un défi pour le sauver.</p>
-                            <!-- Large modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
-                            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Modal title</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Modal body text goes here.</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endif %}#}
-                </div>
-            </div>
-            <div class="offset-1"></div>
+    <div class="container-fluid" style="margin-top: 10px;">
+        <h1 style="text-align: center; margin-top: 20px;">Relève tous les défis pour sauver ton ours et ses amis !</h1>
+    </div>
 
-        </div>
         <div class="row">
-            <div class="col-1">
+            <div class="col-1 mt-5">
             </div>
             <div class="col-9">
                 <div class="map">
@@ -77,7 +38,7 @@
             </div>
             <div class="col-2">
                 <div class="navigation mt-5">
-                    <h2 class="mb-5">Dirige ton ours</h2>
+                    <div><h2 class="mb-2">DIRIGE TON OURS</h2></div>
                     {# Add here N/S/E/W buttons #}
                     <ul style="list-style-type: none; justify-content: center">
                         <li><a href="{{ path('move_boat_to', {'direction' : 'N'}) }}" class="btn btn btn-primary">Haut</a></li><br>
@@ -85,8 +46,75 @@
                         <li><a href="{{ path('move_boat_to', {'direction' : 'W'}) }}" class="btn btn btn-primary">Gauche</a></li><br>
                         <li><a href="{{ path('move_boat_to', {'direction' : 'S'}) }}" class="btn btn btn-primary">Bas</a></li>
                     </ul>
+                    <h2 style="text-align: center; margin-top: 50px">LA POSITION DE L'OURS</h2>
+                    <p style="text-align: center; font-size: 30px;">[{{ boat.coordX }}:{{ boat.coordY }}]</p>
                 </div>
             </div>
         </div>
-    </div>
+
+        <div class="row">
+                <div class="offset-3"></div>
+                <div class="col-6">
+
+                    {% if map[boat.coordX][boat.coordY].type == "island" %}
+                        <div class="text-center">
+                            <div style="border: 2px solid black; border-radius: 10px; background-color: #ADD8E6; justify-content: center; padding-top: 20px; padding-bottom: 20px; margin-top:15px;">
+                                <p>Un phoque sauvage apparaît devant toi !</p>
+                                <p>Relève un défi pour le sauver.</p>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Clique ici pour relever ce défi</button>
+                            </div>
+                            <!-- Large modal -->
+
+                            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Défi du jour</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>{{map[boat.coordX][boat.coordY].challengeDay }}</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">J'ai rempli la mission</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Non, je retenterai ma chance !</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% elseif map[boat.coordX][boat.coordY].type == "port" %}
+                        <div class="text-center">
+                            <div style="border: 2px solid black; border-radius: 10px; background-color: #E6E6FA; justify-content: center; padding-top: 20px; padding-bottom: 20px; margin-top:15px;">
+                                <p>Un ami pinguin s'avance pour te saluer ! Participe à la protection de la planète pour l'aider dans son quotidien sur la banquise.</p>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Clique ici pour relever ce défi</button>
+                            </div>
+                            <!-- Large modal -->
+
+                            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Défi du jour</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>{{map[boat.coordX][boat.coordY].challengeDay }}</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">J'ai rempli la mission</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Non, je retenterai ma chance !</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+            <div class="offset-3">
+        </div>
+                </div>
 {% endblock %}

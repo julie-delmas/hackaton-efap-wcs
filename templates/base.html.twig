@@ -10,7 +10,7 @@
     <meta name="keywords" content="">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 
-    <title>Starter - {% block title %}{% endblock %}</title>
+    <title>Ecolo - {% block title %}{% endblock %}</title>
 
     {{ encore_entry_link_tags('app') }}
 
@@ -18,15 +18,16 @@
     {% endblock %}
 
     <link rel="icon" href="{{ asset('build/assets/images/favicon.ico') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('build/assets/images/favicon.ico') }}">
-    <link rel="apple-touch-icon" type="image/x-icon" href="{{ asset('build/assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('build/assets/images/logo2.png') }}">
+    <link rel="apple-touch-icon" type="image/x-icon" href="{{ asset('build/assets/images/logo2.png') }}">
 </head>
 <body>
 <header>
     {% block header %}
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <a class="navbar-brand" href="{{ path('index') }}">
-            <img src="{{ asset('build/assets/images/cultivons-malin-logo.png') }}" alt="Logo Captain America">
+            <img id="logo" src="{{ asset('build/assets/images/logo2.png') }}" alt="Logo">
+            Eco'Kids
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -45,7 +46,7 @@
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link text-success" href="">Le saviez-vous
+                    <a class="nav-link text-success" href="{{ path('know') }}">Le savais-tu
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -77,12 +78,12 @@
     {% endblock %}
 </header>
 
-<div class="container">
+<div class="container mt-5">
     <div class="row">
         <div class="col-sm-12">
             {% for label, messages in app.flashes %}
                 {% for message in messages %}
-                    <div class="alert alert-{{ label }}">
+                    <div class="alert alert-{{ label }} mt-3">
                         {{ message }}
                     </div>
                 {% endfor %}
