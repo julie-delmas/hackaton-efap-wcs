@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Quizz;
 use App\Form\QuizzType;
 use App\Repository\QuizzRepository;
+use MongoDB\Driver\Manager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,19 +24,14 @@ class QuizzController extends AbstractController
         return $this->render('quizz/index.html.twig', ['quizzs' => $quizzRepository->findAll()]);
     }
 
-    /**
-     * Calculate result
-     *
-     * @Route("/result/{percentage}", name="result", methods="GET")
-     * @param int $percentage
-     * @return     Response A Response instance
-     */
-    /*public function result(int $percentage): Response
-    {
-        var
-        dump($percentage);
-        die();
-    }*/
+
+//    public function result(int $percentage): Response
+//    {
+//        $entityManager = $this->getDoctrine()->getManager();
+//        $user = $this->getUser();
+//
+//
+//    }
     /**
      * @Route("/new", name="quizz_new", methods={"GET","POST"})
      */
